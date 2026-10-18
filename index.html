@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>PBRS Website Features</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+/* layout: one calm column. Title, video, then feature groups; each feature is a screenshot with a name and one line. */
+:root{
+  --bg:#f6f9fc; --surface:#ffffff; --ink:#0b2036; --ink-2:#44586d; --ink-3:#6a7d91; --line:#d9e3ed;
+  --brand:#005699; --sky:#1f93d7; --accent:#e9870f; --shade:rgb(7 30 54 / 10%);
+  --f-display:'Cormorant Garamond',Georgia,serif; --f-body:'Manrope','Segoe UI',system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#06121f;--surface:#0b1c2e;--ink:#eef5fc;--ink-2:#b4c4d6;--ink-3:#8fa3b8;--line:#1d3248;--brand:#5bb3ee;--sky:#5bb3ee;--accent:#f4a340;--shade:rgb(0 0 0 / 45%);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#06121f;--surface:#0b1c2e;--ink:#eef5fc;--ink-2:#b4c4d6;--ink-3:#8fa3b8;--line:#1d3248;--brand:#5bb3ee;--sky:#5bb3ee;--accent:#f4a340;--shade:rgb(0 0 0 / 45%);color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1240px;margin-inline:auto;padding-inline:max(20px,env(safe-area-inset-left,0px)) max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{margin:0;font-weight:500;text-wrap:balance}
+
+/* top bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:56px}
+.bar b{font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700}
+.bar nav{display:flex;gap:1.4rem;overflow-x:auto;scrollbar-width:none}
+.bar nav::-webkit-scrollbar{display:none}
+.bar a{flex:none;color:var(--ink-2);font-size:.82rem;font-weight:600;text-decoration:none;padding:.5rem 0;border-bottom:2px solid transparent}
+.bar a:hover{color:var(--ink);border-color:var(--accent)}
+@media (max-width:760px){.bar b{display:none}}
+
+/* title */
+.title{padding-block:clamp(3rem,8vw,6.5rem) clamp(1.6rem,3vw,2.4rem)}
+.title .k{display:block;margin-bottom:1.2rem;font-size:.78rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--brand)}
+.title h1{font-family:var(--f-display);font-size:clamp(3.2rem,9vw,7.4rem);line-height:.95;letter-spacing:-.02em}
+.title h1 i{font-weight:500;color:var(--brand)}
+.title p{margin:1.6rem 0 0;font-size:1.05rem;color:var(--ink-2)}
+.title p b{color:var(--ink);font-weight:700}
+
+/* video */
+.vid{padding-bottom:clamp(3rem,7vw,6rem)}
+.vtabs{display:flex;gap:.4rem;margin-bottom:.9rem}
+.vtabs button{min-height:44px;padding:.5rem 1.1rem;background:none;border:1px solid var(--line);color:var(--ink-2);font:700 .78rem var(--f-body);letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+.vtabs button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.vframe{background:#02101f;box-shadow:0 30px 70px var(--shade)}
+.vframe video{display:block;width:100%;height:auto;max-height:78vh;background:#02101f}
+.vframe.phone{display:grid;place-items:center;padding:1.2rem}
+.vframe.phone video{width:auto;height:min(78vh,760px);max-width:100%}
+
+/* groups */
+.grp{padding-block:clamp(2.6rem,6vw,5rem);border-top:1px solid var(--line)}
+.grp>.wrap>h2{font-family:var(--f-display);font-size:clamp(2.2rem,4.6vw,3.8rem);line-height:1.02;margin-bottom:clamp(1.6rem,3.4vw,2.8rem)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(1.6rem,3vw,2.6rem) clamp(1.2rem,2.4vw,2rem)}
+.f{margin:0;min-width:0}
+.f.w{grid-column:1/-1}
+.f .im{display:block;width:100%;padding:0;border:0;background:var(--surface);cursor:zoom-in;overflow:hidden;box-shadow:0 14px 40px var(--shade),0 0 0 1px var(--line)}
+.f img{display:block;width:100%;height:auto}
+.f figcaption{padding-top:1rem}
+.f h3{font-size:1.02rem;font-weight:700;font-family:var(--f-body);letter-spacing:.005em}
+.f p{margin:.25rem 0 0;color:var(--ink-2);font-size:.95rem;max-width:62ch}
+.phones{display:grid;grid-template-columns:repeat(auto-fill,minmax(188px,1fr));gap:clamp(1.2rem,2.4vw,2rem)}
+.phones .f .im{background:transparent;box-shadow:0 14px 36px var(--shade),0 0 0 1px var(--line)}
+@media (max-width:760px){.grid{grid-template-columns:minmax(0,1fr)}}
+
+/* credit */
+.credit{padding-block:clamp(2.6rem,6vw,4.5rem);border-top:1px solid var(--line)}
+.credit .wrap{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.6rem 2rem}
+.credit b{font-family:var(--f-display);font-size:1.7rem;font-weight:600}
+.credit span{font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:700}
+
+/* enlarged view */
+.lb{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:rgb(2 10 20 / 94%);cursor:zoom-out}
+.lb[hidden]{display:none}
+.lb img{max-width:100%;max-height:100%;object-fit:contain;box-shadow:0 30px 80px rgb(0 0 0 / 60%)}
+.lb p{position:absolute;inset-inline:0;bottom:max(14px,env(safe-area-inset-bottom,0px));margin:0;text-align:center;color:#dfe9f4;font-size:.9rem}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+</style>
+
+</head><body>
+<header class="bar"><div class="wrap"><b>PBRS International</b><nav aria-label="Sections">
+<a href="#video">Video</a><a href="#home">Home</a><a href="#courses">Courses</a><a href="#enrol">Enrolment</a><a href="#assistant">Assistant</a><a href="#content">Pages</a><a href="#global">Languages</a><a href="#phone">Phone</a></nav></div></header>
+
+<main>
+<section class="title"><div class="wrap">
+  <span class="k">Professional Business &amp; Restaurant School</span>
+  <h1>Website <i>features</i></h1>
+  <p>Prepared by <b>ZeroInfinity Infotech</b></p>
+</div></section>
+
+<section class="vid" id="video"><div class="wrap">
+  <div class="vtabs" role="group" aria-label="Video"><button type="button" id="vt-d" aria-pressed="true">Desktop</button><button type="button" id="vt-p" aria-pressed="false" hidden>Phone</button></div>
+  <div class="vframe" id="vframe"><video id="vid" controls preload="metadata" playsinline poster="img/d-hero.jpg"><source src="tour.mp4" type="video/mp4"></video></div>
+</div></section>
+
+<section class="grp" id="home"><div class="wrap"><h2>Home</h2><div class="grid">
+  <figure class="f w"><button class="im" type="button" data-z="img/d-hero.jpg"><img src="img/d-hero.jpg" alt="Home page hero" loading="lazy"></button><figcaption><h3>Hero and course finder</h3><p>Rotating photos, the full navigation and a course finder on the first screen.</p></figcaption></figure>
+  <figure class="f"><button class="im" type="button" data-z="img/d-nav.jpg"><img src="img/d-nav.jpg" alt="Navigation dropdown" loading="lazy"></button><figcaption><h3>Navigation with photo menus</h3><p>Dropdowns with a photo for each section. The bar hides on scroll down and returns on scroll up.</p></figcaption></figure>
+  <figure class="f"><button class="im" type="button" data-z="img/d-menu-sub.jpg"><img src="img/d-menu-sub.jpg" alt="Full-screen menu" loading="lazy"></button><figcaption><h3>Full-screen menu</h3><p>Every page in one place, with a photo that changes with the section.</p></figcaption></figure>
+  <figure class="f"><button class="im" type="button" data-z="img/d-courses-2.jpg"><img src="img/d-courses-2.jpg" alt="Pinned course scene" loading="lazy"></button><figcaption><h3>Pinned course scene</h3><p>Scrolling steps through the five courses while the photo behind opens in a new shape.</p></figcaption></figure>
+  <figure class="f"><button class="im" type="button" data-z="img/d-strip.jpg"><img src="img/d-strip.jpg" alt="Photo collage" loading="lazy"></button><figcaption><h3>Photo collage</h3><p>Photos swap on their own and start differently on every visit.</p></figcaption></figure>
+  <figure class="f"><button class="im" type="button" data-z="img/d-life.jpg"><img src="img/d-life.jpg" alt="Life at PBRS slider" loading="lazy"></button><figcaption><h3>Sideways photo slider</h3><p>Scrolling down moves the photos sideways. Every photo is shown whole.</p></figcaption></figure>
+  <figure class="f"><button class="im" type="button" data-z="img/d-intake.jpg"><img src="img/d-intake.jpg" alt="Next intake countdown" loading="lazy"></button><figcaption><h3>Next intake countdown</h3><p>Days to the next start date, on a year timeline.</p></figcaption></figure>
+  <figure class="f"><button class="im" type="button" data-z="img/d-stories.jpg"><img src="img/d-stories.jpg" alt="Student stories" loading="lazy"></button><figcaption><h3>Student stories</h3><p>Portrait and quote, changing automatically.</p></figcaption></figure>
+  <figure class="f"><button class="im" type="button" data-z="img/d-map.jpg"><img src="img/d-map.jpg" alt="Find us map" loading="lazy"></button><figcaption><h3>Find us</h3><p>Google map of the campus with directions.</p></figcaption></figure>
+  <figure class="f"><button class="im" type="button" data-z="img/d-how.jpg"><img src="img/d-how.jpg" alt="How it works" loading="lazy"></button><figcaption><h3>How it works</h3><p>The six steps from first question to first day, lighting up as you scroll.</p></figcaption></figure>
+</div></div></section>
+
+<section class="grp" id="courses"><div class="wrap"><h2>Courses</h2><div class="grid">
+  <figure class="f w"><button class="im" type="button" data-z="img/d-courses.jpg"><img src="img/d-courses.jpg" alt="Course catalogue" loading="lazy"></button><figcaption><h3>Course catalogue</h3><p>Filters by level, field and tuition, with search.</p></figcaption></figure>
+  <figure class="f"><button class="im" type="button" data-z="img/d-compare-pick.jpg"><img src="img/d-compare-pick.jpg" alt="Selecting courses to compare" loading="lazy"></button><figcaption><h3>Pick up to three courses</h3><p>Select courses from the catalogue to compare.</p></figcaption></figure>
+  <figure class="f"><button class="im" type="button" data-z="img/d-compare.jpg"><img src="img/d-compare.jpg" alt="Course comparison" loading="lazy"></button><figcaption><h3>Side-by-side comparison</h3><p>Level, length, fees and entry requirements in one table.</p></figcaption></figure>
+  <figure class="f"><button class="im" type="button" data-z="img/d-calc.jpg"><img src="img/d-calc.jpg" alt="Cost calculator" loading="lazy"></button><figcaption><h3>Cost calculator</h3><p>One estimate in New Zealand dollars, with living and support costs.</p></figcaption></figure>
+  <figure class="f"><button class="im" type="button" data-z="img/d-course.jpg"><img src="img/d-course.jpg" alt="Course page" loading="lazy"></button><figcaption><h3>Course pages</h3><p>Overview, entry requirements, fees, graduate outcomes and intakes in tabs.</p></figcaption></figure>
+</div></div></section>
+
+<section class="grp" id="enrol"><div class="wrap"><h2>Enrolment</h2><div class="grid">
+  <figure class="f"><button class="im" type="button" data-z="img/d-apply.jpg"><img src="img/d-apply.jpg" alt="Online application" loading="lazy"></button><figcaption><h3>Six-step online application</h3><p>Personal details, course, education, English, documents and declaration, saved as you go.</p></figcaption></figure>
+  <figure class="f"><button class="im" type="button" data-z="img/d-policies.jpg"><img src="img/d-policies.jpg" alt="Enrolment policies" loading="lazy"></button><figcaption><h3>Enrolment policies</h3><p>Fees, refunds, attendance, insurance and more, one section each.</p></figcaption></figure>
+</div></div></section>
+
+<section class="grp" id="assistant"><div class="wrap"><h2>Assistant and search</h2><div class="grid">
+  <figure class="f w"><button class="im" type="button" data-z="img/d-chat.jpg"><img src="img/d-chat.jpg" alt="Assistant answering with sources" loading="lazy"></button><figcaption><h3>PBRS Assistant</h3><p>Answers from the school's own pages, with numbered sources that link to the matching page.</p></figcaption></figure>
+  <figure class="f"><button class="im" type="button" data-z="img/d-assistant.jpg"><img src="img/d-assistant.jpg" alt="Assistant section" loading="lazy"></button><figcaption><h3>Assistant section</h3><p>Course advice, cost estimates and a hand-over to admissions.</p></figcaption></figure>
+  <figure class="f"><button class="im" type="button" data-z="img/d-search.jpg"><img src="img/d-search.jpg" alt="Quick search" loading="lazy"></button><figcaption><h3>Quick search</h3><p>Press Ctrl+K to find any page or course.</p></figcaption></figure>
+</div></div></section>
+
+<section class="grp" id="content"><div class="wrap"><h2>Pages</h2><div class="grid">
+  <figure class="f"><button class="im" type="button" data-z="img/d-gallery.jpg"><img src="img/d-gallery.jpg" alt="Photo gallery" loading="lazy"></button><figcaption><h3>Photo gallery</h3><p>Filters and a masonry grid.</p></figcaption></figure>
+  <figure class="f"><button class="im" type="button" data-z="img/d-viewer.jpg"><img src="img/d-viewer.jpg" alt="Photo viewer" loading="lazy"></button><figcaption><h3>Full-screen photo viewer</h3><p>Arrow keys, swipe and Esc.</p></figcaption></figure>
+  <figure class="f"><button class="im" type="button" data-z="img/d-awards.jpg"><img src="img/d-awards.jpg" alt="Awards" loading="lazy"></button><figcaption><h3>Awards and recognition</h3><p>Four times New Zealand Training Establishment of the Year.</p></figcaption></figure>
+  <figure class="f"><button class="im" type="button" data-z="img/d-about.jpg"><img src="img/d-about.jpg" alt="About" loading="lazy"></button><figcaption><h3>About PBRS</h3><p>The school, its history and its numbers.</p></figcaption></figure>
+  <figure class="f"><button class="im" type="button" data-z="img/d-news.jpg"><img src="img/d-news.jpg" alt="News" loading="lazy"></button><figcaption><h3>News</h3><p>Dated stories with excerpts.</p></figcaption></figure>
+  <figure class="f"><button class="im" type="button" data-z="img/d-events.jpg"><img src="img/d-events.jpg" alt="Events calendar" loading="lazy"></button><figcaption><h3>Events calendar</h3><p>Open days, orientation and ceremonies.</p></figcaption></figure>
+  <figure class="f"><button class="im" type="button" data-z="img/d-employment.jpg"><img src="img/d-employment.jpg" alt="Employment support" loading="lazy"></button><figcaption><h3>Employment support</h3><p>Career help for students, graduates and employers.</p></figcaption></figure>
+  <figure class="f"><button class="im" type="button" data-z="img/d-jobs.jpg"><img src="img/d-jobs.jpg" alt="Job board" loading="lazy"></button><figcaption><h3>Job board</h3><p>Filter by role type and hours, apply with a saved CV.</p></figcaption></figure>
+  <figure class="f"><button class="im" type="button" data-z="img/d-facilities.jpg"><img src="img/d-facilities.jpg" alt="Facilities" loading="lazy"></button><figcaption><h3>Facilities</h3><p>Kitchens, restaurant, labs, library and classrooms.</p></figcaption></figure>
+  <figure class="f"><button class="im" type="button" data-z="img/d-contact.jpg"><img src="img/d-contact.jpg" alt="Contact" loading="lazy"></button><figcaption><h3>Contact</h3><p>Campus details and an enquiry form.</p></figcaption></figure>
+</div></div></section>
+
+<section class="grp" id="global"><div class="wrap"><h2>Languages and themes</h2><div class="grid">
+  <figure class="f"><button class="im" type="button" data-z="img/d-ar.jpg"><img src="img/d-ar.jpg" alt="Arabic, right to left" loading="lazy"></button><figcaption><h3>Arabic, right to left</h3><p>The whole layout mirrors.</p></figcaption></figure>
+  <figure class="f"><button class="im" type="button" data-z="img/d-dark.jpg"><img src="img/d-dark.jpg" alt="Dark theme" loading="lazy"></button><figcaption><h3>Light, dark and system themes</h3><p>One tap in the header.</p></figcaption></figure>
+  <figure class="f"><button class="im" type="button" data-z="img/d-zh.jpg"><img src="img/d-zh.jpg" alt="Chinese" loading="lazy"></button><figcaption><h3>中文</h3><p>Interface and assistant.</p></figcaption></figure>
+  <figure class="f"><button class="im" type="button" data-z="img/d-fr.jpg"><img src="img/d-fr.jpg" alt="French" loading="lazy"></button><figcaption><h3>Français</h3><p>Interface and assistant.</p></figcaption></figure>
+  <figure class="f"><button class="im" type="button" data-z="img/d-es.jpg"><img src="img/d-es.jpg" alt="Spanish" loading="lazy"></button><figcaption><h3>Español</h3><p>Interface and assistant.</p></figcaption></figure>
+</div></div></section>
+
+<section class="grp" id="phone"><div class="wrap"><h2>Phone</h2><div class="phones">
+  <figure class="f"><button class="im" type="button" data-z="img/m-hero.jpg"><img src="img/m-hero.jpg" alt="Phone home" loading="lazy"></button><figcaption><h3>Home</h3><p>Bottom tab bar and course finder.</p></figcaption></figure>
+  <figure class="f"><button class="im" type="button" data-z="img/m-menu.jpg"><img src="img/m-menu.jpg" alt="Phone menu" loading="lazy"></button><figcaption><h3>Menu</h3><p>Full-screen, one thumb.</p></figcaption></figure>
+  <figure class="f"><button class="im" type="button" data-z="img/m-courses.jpg"><img src="img/m-courses.jpg" alt="Phone courses" loading="lazy"></button><figcaption><h3>Course cards</h3><p>Slide sideways as you scroll.</p></figcaption></figure>
+  <figure class="f"><button class="im" type="button" data-z="img/m-life.jpg"><img src="img/m-life.jpg" alt="Phone photo slider" loading="lazy"></button><figcaption><h3>Photo slider</h3><p>Photos shown whole.</p></figcaption></figure>
+  <figure class="f"><button class="im" type="button" data-z="img/m-strip.jpg"><img src="img/m-strip.jpg" alt="Phone collage" loading="lazy"></button><figcaption><h3>Photo collage</h3><p>Changes on its own.</p></figcaption></figure>
+  <figure class="f"><button class="im" type="button" data-z="img/m-chat.jpg"><img src="img/m-chat.jpg" alt="Phone assistant" loading="lazy"></button><figcaption><h3>Assistant</h3><p>Full-screen chat with sources.</p></figcaption></figure>
+  <figure class="f"><button class="im" type="button" data-z="img/m-gallery.jpg"><img src="img/m-gallery.jpg" alt="Phone gallery" loading="lazy"></button><figcaption><h3>Gallery</h3><p>Two columns, swipe viewer.</p></figcaption></figure>
+  <figure class="f"><button class="im" type="button" data-z="img/m-catalog.jpg"><img src="img/m-catalog.jpg" alt="Phone catalogue" loading="lazy"></button><figcaption><h3>Catalogue</h3><p>Filters behind a button.</p></figcaption></figure>
+  <figure class="f"><button class="im" type="button" data-z="img/m-apply.jpg"><img src="img/m-apply.jpg" alt="Phone application" loading="lazy"></button><figcaption><h3>Application</h3><p>Six steps, one screen each.</p></figcaption></figure>
+</div></div></section>
+</main>
+
+<footer class="credit"><div class="wrap"><b>ZeroInfinity Infotech</b><span>Prepared for PBRS International</span></div></footer>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Enlarged image"><img id="lb-i" alt=""><p id="lb-c"></p></div>
+
+<script>
+(function () {
+  var lb = document.getElementById('lb'), li = document.getElementById('lb-i'), lc = document.getElementById('lb-c'), last = null;
+  function open(btn) { last = btn; var im = btn.querySelector('img'); li.src = btn.dataset.z; li.alt = im.alt; lc.textContent = btn.closest('figure').querySelector('h3').textContent; lb.hidden = false; document.body.style.overflow = 'hidden' }
+  function close() { lb.hidden = true; document.body.style.overflow = ''; if (last) last.focus() }
+  document.addEventListener('click', function (e) { var b = e.target.closest('[data-z]'); if (b) { open(b); return } if (!lb.hidden) close() });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !lb.hidden) close() });
+  var v = document.getElementById('vid'), frame = document.getElementById('vframe'), td = document.getElementById('vt-d'), tp = document.getElementById('vt-p');
+  function show(which) {
+    var ph = which === 'p'; td.setAttribute('aria-pressed', String(!ph)); tp.setAttribute('aria-pressed', String(ph)); frame.classList.toggle('phone', ph);
+    v.pause(); v.querySelector('source').src = ph ? 'tour-phone.mp4' : 'tour.mp4'; v.poster = ph ? 'img/m-hero.jpg' : 'img/d-hero.jpg'; v.load();
+  }
+  td.onclick = function () { show('d') }; tp.onclick = function () { show('p') };
+  fetch('tour-phone.mp4', { method: 'HEAD' }).then(function (r) { if (r.ok) tp.hidden = false }).catch(function () { });
+})();
+</script>
+
+</body></html>
