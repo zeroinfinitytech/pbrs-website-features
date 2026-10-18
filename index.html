@@ -51,6 +51,11 @@ h1,h2,h3{margin:0;font-weight:500;text-wrap:balance}
 .vframe.phone{display:grid;place-items:center;padding:1.2rem}
 .vframe.phone video{width:auto;height:min(78vh,760px);max-width:100%}
 
+/* group reels */
+.reel{margin-bottom:clamp(1.6rem,3.4vw,2.8rem)}
+.reel .vtabs{flex-wrap:wrap}
+.reel .vtabs button{min-height:40px;padding:.4rem .9rem;font-size:.72rem}
+
 /* groups */
 .grp{padding-block:clamp(2.6rem,6vw,5rem);border-top:1px solid var(--line)}
 .grp>.wrap>h2{font-family:var(--f-display);font-size:clamp(2.2rem,4.6vw,3.8rem);line-height:1.02;margin-bottom:clamp(1.6rem,3.4vw,2.8rem)}
@@ -89,7 +94,6 @@ h1,h2,h3{margin:0;font-weight:500;text-wrap:balance}
 html{scroll-behavior:smooth;scroll-padding-top:70px}
 </style>
 
-</head><body>
 <header class="bar"><div class="wrap"><a class="brand" href="#top" aria-label="PBRS International"><img class="lt" src="img/pbrs-logo.png" alt="PBRS" width="640" height="260"><img class="dk" src="img/pbrs-logo-light.png" alt="" width="640" height="260"></a><nav aria-label="Sections">
 <a href="#video">Video</a><a href="#home">Home</a><a href="#courses">Courses</a><a href="#enrol">Enrolment</a><a href="#assistant">Assistant</a><a href="#content">Pages</a><a href="#global">Languages</a><a href="#phone">Phone</a></nav></div></header>
 
@@ -105,7 +109,7 @@ html{scroll-behavior:smooth;scroll-padding-top:70px}
   <div class="vframe" id="vframe"><video id="vid" controls preload="metadata" playsinline poster="img/d-hero.jpg"><source src="tour.mp4" type="video/mp4"></video></div>
 </div></section>
 
-<section class="grp" id="home"><div class="wrap"><h2>Home</h2><div class="grid">
+<section class="grp" id="home"><div class="wrap"><h2>Home</h2><div class="reel"><div class="vtabs" role="group" aria-label="Video"><button type="button" data-clip="clips/home-hero.mp4" aria-pressed="true">Hero</button><button type="button" data-clip="clips/navigation.mp4" aria-pressed="false">Navigation</button><button type="button" data-clip="clips/courses-scene.mp4" aria-pressed="false">Course scene</button><button type="button" data-clip="clips/photo-collage.mp4" aria-pressed="false">Collage</button><button type="button" data-clip="clips/life-slider.mp4" aria-pressed="false">Photo slider</button><button type="button" data-clip="clips/intake-how.mp4" aria-pressed="false">Intake and steps</button><button type="button" data-clip="clips/stories-map.mp4" aria-pressed="false">Stories and map</button></div><div class="vframe"><video controls preload="metadata" playsinline><source src="clips/home-hero.mp4#t=0.1" type="video/mp4"></video></div></div><div class="grid">
   <figure class="f w"><button class="im" type="button" data-z="img/d-hero.jpg"><img src="img/d-hero.jpg" alt="Home page hero" loading="lazy"></button><figcaption><h3>Hero and course finder</h3><p>Rotating photos, the full navigation and a course finder on the first screen.</p></figcaption></figure>
   <figure class="f"><button class="im" type="button" data-z="img/d-nav.jpg"><img src="img/d-nav.jpg" alt="Navigation dropdown" loading="lazy"></button><figcaption><h3>Navigation with photo menus</h3><p>Dropdowns with a photo for each section. The bar hides on scroll down and returns on scroll up.</p></figcaption></figure>
   <figure class="f"><button class="im" type="button" data-z="img/d-menu-sub.jpg"><img src="img/d-menu-sub.jpg" alt="Full-screen menu" loading="lazy"></button><figcaption><h3>Full-screen menu</h3><p>Every page in one place, with a photo that changes with the section.</p></figcaption></figure>
@@ -118,7 +122,7 @@ html{scroll-behavior:smooth;scroll-padding-top:70px}
   <figure class="f"><button class="im" type="button" data-z="img/d-how.jpg"><img src="img/d-how.jpg" alt="How it works" loading="lazy"></button><figcaption><h3>How it works</h3><p>The six steps from first question to first day, lighting up as you scroll.</p></figcaption></figure>
 </div></div></section>
 
-<section class="grp" id="courses"><div class="wrap"><h2>Courses</h2><div class="grid">
+<section class="grp" id="courses"><div class="wrap"><h2>Courses</h2><div class="reel"><div class="vtabs" role="group" aria-label="Video"><button type="button" data-clip="clips/catalogue.mp4" aria-pressed="true">Catalogue</button><button type="button" data-clip="clips/compare.mp4" aria-pressed="false">Compare</button><button type="button" data-clip="clips/calculator.mp4" aria-pressed="false">Calculator</button><button type="button" data-clip="clips/course-page.mp4" aria-pressed="false">Course page</button></div><div class="vframe"><video controls preload="metadata" playsinline><source src="clips/catalogue.mp4#t=0.1" type="video/mp4"></video></div></div><div class="grid">
   <figure class="f w"><button class="im" type="button" data-z="img/d-courses.jpg"><img src="img/d-courses.jpg" alt="Course catalogue" loading="lazy"></button><figcaption><h3>Course catalogue</h3><p>Filters by level, field and tuition, with search.</p></figcaption></figure>
   <figure class="f"><button class="im" type="button" data-z="img/d-compare-pick.jpg"><img src="img/d-compare-pick.jpg" alt="Selecting courses to compare" loading="lazy"></button><figcaption><h3>Pick up to three courses</h3><p>Select courses from the catalogue to compare.</p></figcaption></figure>
   <figure class="f"><button class="im" type="button" data-z="img/d-compare.jpg"><img src="img/d-compare.jpg" alt="Course comparison" loading="lazy"></button><figcaption><h3>Side-by-side comparison</h3><p>Level, length, fees and entry requirements in one table.</p></figcaption></figure>
@@ -126,18 +130,18 @@ html{scroll-behavior:smooth;scroll-padding-top:70px}
   <figure class="f"><button class="im" type="button" data-z="img/d-course.jpg"><img src="img/d-course.jpg" alt="Course page" loading="lazy"></button><figcaption><h3>Course pages</h3><p>Overview, entry requirements, fees, graduate outcomes and intakes in tabs.</p></figcaption></figure>
 </div></div></section>
 
-<section class="grp" id="enrol"><div class="wrap"><h2>Enrolment</h2><div class="grid">
+<section class="grp" id="enrol"><div class="wrap"><h2>Enrolment</h2><div class="reel"><div class="vtabs" role="group" aria-label="Video"><button type="button" data-clip="clips/application.mp4" aria-pressed="true">Application</button><button type="button" data-clip="clips/policies.mp4" aria-pressed="false">Policies</button></div><div class="vframe"><video controls preload="metadata" playsinline><source src="clips/application.mp4#t=0.1" type="video/mp4"></video></div></div><div class="grid">
   <figure class="f"><button class="im" type="button" data-z="img/d-apply.jpg"><img src="img/d-apply.jpg" alt="Online application" loading="lazy"></button><figcaption><h3>Six-step online application</h3><p>Personal details, course, education, English, documents and declaration, saved as you go.</p></figcaption></figure>
   <figure class="f"><button class="im" type="button" data-z="img/d-policies.jpg"><img src="img/d-policies.jpg" alt="Enrolment policies" loading="lazy"></button><figcaption><h3>Enrolment policies</h3><p>Fees, refunds, attendance, insurance and more, one section each.</p></figcaption></figure>
 </div></div></section>
 
-<section class="grp" id="assistant"><div class="wrap"><h2>Assistant and search</h2><div class="grid">
+<section class="grp" id="assistant"><div class="wrap"><h2>Assistant and search</h2><div class="reel"><div class="vtabs" role="group" aria-label="Video"><button type="button" data-clip="clips/assistant-chat.mp4" aria-pressed="true">Assistant</button><button type="button" data-clip="clips/assistant-section.mp4" aria-pressed="false">Section</button></div><div class="vframe"><video controls preload="metadata" playsinline><source src="clips/assistant-chat.mp4#t=0.1" type="video/mp4"></video></div></div><div class="grid">
   <figure class="f w"><button class="im" type="button" data-z="img/d-chat.jpg"><img src="img/d-chat.jpg" alt="Assistant answering with sources" loading="lazy"></button><figcaption><h3>PBRS Assistant</h3><p>Answers from the school's own pages, with numbered sources that link to the matching page.</p></figcaption></figure>
   <figure class="f"><button class="im" type="button" data-z="img/d-assistant.jpg"><img src="img/d-assistant.jpg" alt="Assistant section" loading="lazy"></button><figcaption><h3>Assistant section</h3><p>Course advice, cost estimates and a hand-over to admissions.</p></figcaption></figure>
   <figure class="f"><button class="im" type="button" data-z="img/d-search.jpg"><img src="img/d-search.jpg" alt="Quick search" loading="lazy"></button><figcaption><h3>Quick search</h3><p>Press Ctrl+K to find any page or course.</p></figcaption></figure>
 </div></div></section>
 
-<section class="grp" id="content"><div class="wrap"><h2>Pages</h2><div class="grid">
+<section class="grp" id="content"><div class="wrap"><h2>Pages</h2><div class="reel"><div class="vtabs" role="group" aria-label="Video"><button type="button" data-clip="clips/gallery.mp4" aria-pressed="true">Gallery</button><button type="button" data-clip="clips/more-pages.mp4" aria-pressed="false">More pages</button></div><div class="vframe"><video controls preload="metadata" playsinline><source src="clips/gallery.mp4#t=0.1" type="video/mp4"></video></div></div><div class="grid">
   <figure class="f"><button class="im" type="button" data-z="img/d-gallery.jpg"><img src="img/d-gallery.jpg" alt="Photo gallery" loading="lazy"></button><figcaption><h3>Photo gallery</h3><p>Filters and a masonry grid.</p></figcaption></figure>
   <figure class="f"><button class="im" type="button" data-z="img/d-viewer.jpg"><img src="img/d-viewer.jpg" alt="Photo viewer" loading="lazy"></button><figcaption><h3>Full-screen photo viewer</h3><p>Arrow keys, swipe and Esc.</p></figcaption></figure>
   <figure class="f"><button class="im" type="button" data-z="img/d-awards.jpg"><img src="img/d-awards.jpg" alt="Awards" loading="lazy"></button><figcaption><h3>Awards and recognition</h3><p>Four times New Zealand Training Establishment of the Year.</p></figcaption></figure>
@@ -150,7 +154,7 @@ html{scroll-behavior:smooth;scroll-padding-top:70px}
   <figure class="f"><button class="im" type="button" data-z="img/d-contact.jpg"><img src="img/d-contact.jpg" alt="Contact" loading="lazy"></button><figcaption><h3>Contact</h3><p>Campus details and an enquiry form.</p></figcaption></figure>
 </div></div></section>
 
-<section class="grp" id="global"><div class="wrap"><h2>Languages and themes</h2><div class="grid">
+<section class="grp" id="global"><div class="wrap"><h2>Languages and themes</h2><div class="reel"><div class="vtabs" role="group" aria-label="Video"><button type="button" data-clip="clips/languages.mp4" aria-pressed="true">Languages</button><button type="button" data-clip="clips/themes.mp4" aria-pressed="false">Themes</button></div><div class="vframe"><video controls preload="metadata" playsinline><source src="clips/languages.mp4#t=0.1" type="video/mp4"></video></div></div><div class="grid">
   <figure class="f"><button class="im" type="button" data-z="img/d-ar.jpg"><img src="img/d-ar.jpg" alt="Arabic, right to left" loading="lazy"></button><figcaption><h3>Arabic, right to left</h3><p>The whole layout mirrors.</p></figcaption></figure>
   <figure class="f"><button class="im" type="button" data-z="img/d-dark.jpg"><img src="img/d-dark.jpg" alt="Dark theme" loading="lazy"></button><figcaption><h3>Light, dark and system themes</h3><p>One tap in the header.</p></figcaption></figure>
   <figure class="f"><button class="im" type="button" data-z="img/d-zh.jpg"><img src="img/d-zh.jpg" alt="Chinese" loading="lazy"></button><figcaption><h3>中文</h3><p>Interface and assistant.</p></figcaption></figure>
@@ -158,7 +162,7 @@ html{scroll-behavior:smooth;scroll-padding-top:70px}
   <figure class="f"><button class="im" type="button" data-z="img/d-es.jpg"><img src="img/d-es.jpg" alt="Spanish" loading="lazy"></button><figcaption><h3>Español</h3><p>Interface and assistant.</p></figcaption></figure>
 </div></div></section>
 
-<section class="grp" id="phone"><div class="wrap"><h2>Phone</h2><div class="phones">
+<section class="grp" id="phone"><div class="wrap"><h2>Phone</h2><div class="reel phone"><div class="vtabs" role="group" aria-label="Video"><button type="button" data-clip="clips/phone-home.mp4" aria-pressed="true">Home</button><button type="button" data-clip="clips/phone-menu-pages.mp4" aria-pressed="false">Menu and pages</button><button type="button" data-clip="clips/phone-chat.mp4" aria-pressed="false">Assistant</button></div><div class="vframe phone"><video controls preload="metadata" playsinline><source src="clips/phone-home.mp4#t=0.1" type="video/mp4"></video></div></div><div class="phones">
   <figure class="f"><button class="im" type="button" data-z="img/m-hero.jpg"><img src="img/m-hero.jpg" alt="Phone home" loading="lazy"></button><figcaption><h3>Home</h3><p>Bottom tab bar and course finder.</p></figcaption></figure>
   <figure class="f"><button class="im" type="button" data-z="img/m-menu.jpg"><img src="img/m-menu.jpg" alt="Phone menu" loading="lazy"></button><figcaption><h3>Menu</h3><p>Full-screen, one thumb.</p></figcaption></figure>
   <figure class="f"><button class="im" type="button" data-z="img/m-courses.jpg"><img src="img/m-courses.jpg" alt="Phone courses" loading="lazy"></button><figcaption><h3>Course cards</h3><p>Slide sideways as you scroll.</p></figcaption></figure>
@@ -191,6 +195,10 @@ html{scroll-behavior:smooth;scroll-padding-top:70px}
     v.pause(); v.querySelector('source').src = ph ? 'tour-phone.mp4' : 'tour.mp4'; v.poster = ph ? 'img/m-hero.jpg' : 'img/d-hero.jpg'; v.load();
   }
   td.onclick = function () { show('d') }; tp.onclick = function () { show('p') };
+  document.querySelectorAll('.reel').forEach(function (r) {
+    var vv = r.querySelector('video'), bs = r.querySelectorAll('[data-clip]');
+    bs.forEach(function (b) { b.onclick = function () { bs.forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)) }); vv.pause(); vv.querySelector('source').src = b.dataset.clip + '#t=0.1'; vv.load(); vv.play().catch(function () { }) } });
+  });
   fetch('tour-phone.mp4', { method: 'HEAD' }).then(function (r) { if (r.ok) tp.hidden = false }).catch(function () { });
 })();
 </script>
